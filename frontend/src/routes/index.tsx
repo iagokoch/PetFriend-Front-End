@@ -8,12 +8,13 @@ import Registro from "../pages/public/Registro";
 import DashboardCuidador from "../pages/DashboardCuidador";
 import DashboardDono from "../pages/DashboardDono";
 import MeusPets from "../pages/MeusPets";
+import EncontrarCuidadores from "../pages/EncontrarCuidadores";
+import Agendamento from "../pages/Agendamento";
+import MinhasReservas from "../pages/MinhasReservas";
 
 const router = createBrowserRouter([
-  // Landing page
   { path: "/", element: <Home /> },
 
-  // Páginas de autenticação
   {
     element: <AuthLayout />,
     children: [
@@ -22,7 +23,6 @@ const router = createBrowserRouter([
     ],
   },
 
-  // Páginas internas — protegidas + com sidebar
   {
     element: <ProtectedRoute />,
     children: [
@@ -32,9 +32,9 @@ const router = createBrowserRouter([
           { path: "/dashboard/cuidador", element: <DashboardCuidador /> },
           { path: "/dashboard/dono", element: <DashboardDono /> },
           { path: "/meus-pets", element: <MeusPets /> },
-          // { path: "/encontrar-cuidadores", element: <EncontrarCuidadores /> },
-          // { path: "/agendamento",          element: <Agendamento /> },
-          // { path: "/minhas-reservas",      element: <MinhasReservas /> },
+          { path: "/encontrar-cuidadores", element: <EncontrarCuidadores /> },
+          { path: "/agendamento", element: <Agendamento /> },
+          { path: "/minhas-reservas", element: <MinhasReservas /> },
           // { path: "/minha-agenda",         element: <MinhaAgenda /> },
           // { path: "/meus-servicos",        element: <MeusServicos /> },
           // { path: "/configuracoes",        element: <Configuracoes /> },
