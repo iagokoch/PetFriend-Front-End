@@ -12,6 +12,8 @@ import EncontrarCuidadores from "../pages/EncontrarCuidadores";
 import Agendamento from "../pages/Agendamento";
 import MinhasReservas from "../pages/MinhasReservas";
 import Configuracoes from "../pages/Configuracoes";
+import MinhaAgenda from "../pages/MinhaAgenda";
+import MeusServicos from "../pages/MeusServicos";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -37,8 +39,8 @@ const router = createBrowserRouter([
           { path: "/agendamento", element: <Agendamento /> },
           { path: "/minhas-reservas", element: <MinhasReservas /> },
           { path: "/configuracoes", element: <Configuracoes /> },
-          // { path: "/minha-agenda",         element: <MinhaAgenda /> },
-          // { path: "/meus-servicos",        element: <MeusServicos /> },
+          { path: "/minha-agenda", element: <MinhaAgenda /> },
+          { path: "/meus-servicos", element: <MeusServicos /> },
           // { path: "/perfil-cuidador/:id",  element: <PerfilCuidador /> },
         ],
       },
