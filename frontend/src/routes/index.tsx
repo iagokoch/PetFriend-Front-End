@@ -14,6 +14,7 @@ import MinhasReservas from "../pages/MinhasReservas";
 import Configuracoes from "../pages/Configuracoes";
 import MinhaAgenda from "../pages/MinhaAgenda";
 import MeusServicos from "../pages/MeusServicos";
+import PerfilCuidador from "../pages/PerfilCuidador";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
           { path: "/configuracoes", element: <Configuracoes /> },
           { path: "/minha-agenda", element: <MinhaAgenda /> },
           { path: "/meus-servicos", element: <MeusServicos /> },
-          // { path: "/perfil-cuidador/:id",  element: <PerfilCuidador /> },
+          { path: "/perfil-cuidador/:id", element: <PerfilCuidador /> },
         ],
       },
     ],
