@@ -1,0 +1,86 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-03-30T00:27:46.575Z",
+  "phase": "01",
+  "phase_name": "admin-migracao",
+  "phase_dir": ".planning/phases/01-admin-migracao",
+  "plan": 1,
+  "task": 4,
+  "total_tasks": 6,
+  "status": "paused",
+  "completed_tasks": [
+    {
+      "id": 1,
+      "name": "Mapear codebase GSD",
+      "status": "done",
+      "commit": "d57091c"
+    },
+    {
+      "id": 2,
+      "name": "Migrar paginas admin base e rotas",
+      "status": "done",
+      "commit": "working_tree"
+    },
+    {
+      "id": 3,
+      "name": "Corrigir navegacao admin e detalhes em usuarios",
+      "status": "done",
+      "commit": "working_tree"
+    },
+    {
+      "id": 4,
+      "name": "Adicionar detalhes em denuncias e logs",
+      "status": "in_progress",
+      "progress": "Modais implementados e build validado; falta consolidar commit das mudancas de frontend."
+    }
+  ],
+  "remaining_tasks": [
+    {
+      "id": 5,
+      "name": "Integrar frontend com backend real",
+      "status": "not_started"
+    },
+    {
+      "id": 6,
+      "name": "Adicionar testes de fluxo admin",
+      "status": "not_started"
+    }
+  ],
+  "blockers": [
+    {
+      "description": "Backend ainda nao foi entregue para substituir os dados mockados e autenticao simulada.",
+      "type": "external",
+      "workaround": "Continuar somente com refinamento visual e navegacao local."
+    }
+  ],
+  "human_actions_pending": [
+    {
+      "action": "Receber backend e contrato de API do colega",
+      "context": "Necessario para integrar login, usuarios, denuncias e logs reais",
+      "blocking": true
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Migracao feita uma pagina por vez com mocks realistas",
+      "rationale": "Facilita validacao incremental e evita regressao grande",
+      "phase": "01"
+    },
+    {
+      "decision": "Usar MainLayout unico com menu admin por prefixo /admin",
+      "rationale": "Garante navegacao consistente mesmo com sessao mock",
+      "phase": "01"
+    }
+  ],
+  "uncommitted_files": [
+    "frontend/src/layouts/MainLayout.tsx",
+    "frontend/src/routes/index.tsx",
+    "frontend/src/pages/admin/AdminConfiguracoes.tsx",
+    "frontend/src/pages/admin/AdminDenuncias.tsx",
+    "frontend/src/pages/admin/AdminLogs.tsx",
+    "frontend/src/pages/admin/AdminUsuarios.tsx",
+    "frontend/src/pages/admin/DashboardAdmin.tsx"
+  ],
+  "next_action": "Integrar frontend com backend real",
+  "context_notes": "A interface admin esta navegavel e com modais de detalhes. O principal risco agora eh acoplamento de mocks nas telas; ao receber backend, criar camada de servicos e trocar estados locais por chamadas HTTP tipadas."
+}
