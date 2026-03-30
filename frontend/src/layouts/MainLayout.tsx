@@ -42,14 +42,19 @@ export default function MainLayout() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user } = useAuth();
+  const isAdminArea = location.pathname.startsWith("/admin");
 
   let navItems = navItemsDono;
-  if (user?.role === "admin") navItems = navItemsAdmin;
-  if (user?.role === "cuidador") navItems = navItemsCuidador;
+  if (isAdminArea || user?.role === "admin") navItems = navItemsAdmin;
+  if (!isAdminArea && user?.role === "cuidador") navItems = navItemsCuidador;
 
   let roleLabel = "Dono de Pet";
-  if (user?.role === "cuidador") roleLabel = "Cuidador(a) Profissional";
-  if (user?.role === "admin") roleLabel = "Administrador";
+  if (!isAdminArea && user?.role === "cuidador") {
+    roleLabel = "Cuidador(a) Profissional";
+  }
+  if (isAdminArea || user?.role === "admin") roleLabel = "Administrador";
+
+  const homeDestination = isAdminArea ? "/admin" : "/";
 
   return (
     <div className="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 h-screen overflow-hidden flex font-display">
@@ -82,7 +87,7 @@ export default function MainLayout() {
           {/* Logo */}
           <div className="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800">
             <Link
-              to="/"
+              to={homeDestination}
               className="flex items-center gap-2 text-primary font-bold text-xl"
             >
               <span className="material-icons">pets</span>
